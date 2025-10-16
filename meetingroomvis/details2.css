@@ -1,0 +1,421 @@
+.food-pdf-btn {
+    background-color: #ff9800;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+    margin: 0 2px;
+}
+.food-pdf-btn:hover {
+    background-color: #fb8c00;
+    transform: translateY(-2px) scale(1.04);
+}
+
+/* Error message styles */
+.error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: 500;
+}
+
+/* --- General and Layout --- */
+body {
+    font-family: 'Sarabun', sans-serif; /* เลือกใช้ฟอนต์ที่อ่านง่ายสำหรับภาษาไทย */
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f6; /* สีพื้นหลังอ่อนๆ */
+    color: #333;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff; /* สีพื้นหลัง Navbar */
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+.top-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.top-menu li {
+    margin-left: 1.5rem;
+}
+
+.top-menu a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.top-menu a:hover {
+    color: #4CAF50;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #2c3e50; /* สีพื้นหลัง Sidebar */
+    color: #ecf0f1;
+    padding-top: 6rem; /* เว้นระยะด้านบนเพื่อหลีกเลี่ยง navbar */
+    position: fixed;
+    height: 100%;
+    left: 0;
+    top: 0;
+    overflow-y: auto;
+    transition: width 0.3s ease;
+}
+
+.side-menu {
+    padding: 1.5rem;
+}
+
+.side-menu h5 {
+    color: #bdc3c7;
+    text-align: center;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    margin-top: 0;
+}
+
+.side-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.side-menu li {
+    margin-bottom: 0.5rem;
+}
+
+.side-menu a {
+    display: block;
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+    color: #ecf0f1;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.side-menu a:hover {
+    background-color: #34495e;
+}
+
+/* --- Main Content Area --- */
+.main-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-left: 290px; /* Space for the fixed sidebar + margin */
+    margin-right: 20px;
+    margin-top: 45px;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+/* --- Table and Details Styling --- */
+.details-container {
+    padding: 1.5rem;
+    margin: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+.details-container h2 {
+    color: #2c3e50;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+}
+
+.text-right {
+    text-align: right;
+    margin-bottom: 1rem;
+}
+
+.back-button, .action-buttons a {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+    white-space: nowrap; /* Prevents button text from wrapping */
+}
+
+.back-button {
+    background-color: #6c757d;
+    color: #fff;
+    margin-left: 0.5rem;
+}
+
+.back-button:hover {
+    background-color: #5a6268;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+thead {
+    background-color: #e9ecef;
+}
+
+th, td {
+    text-align: left;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+}
+
+th {
+    font-weight: 600;
+    color: #495057;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.edit-button,
+.zoom-button {
+  text-decoration: none;
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.3s;
+  width: 100px;
+  text-align: center;
+}
+
+.edit-button {
+  background-color: #f0c757;
+  color: #333;
+}
+
+.zoom-button {
+  background-color: #2196F3;
+  color: #fff;
+}
+
+.edit-button:hover,
+.zoom-button:hover {
+  background-color: #ddd;
+  transform: scale(1.05);
+}
+
+.zoom-button:hover {
+  background-color: #0b7dda;
+}
+
+.ไม่พบรายการจอง {
+    text-align: center;
+    color: #a32b2b;
+    margin-top: 2rem;
+    font-style: italic;
+}
+
+/* Popup overlay */
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* Popup box */
+.popup-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    width: 400px;
+    max-width: 90%;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* ปุ่มปิด */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #555;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.close-btn:hover {
+    color: red;
+}
+
+/* ปุ่มดูเพิ่มเติม */
+.view-more-btn {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    margin-top: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 13px;
+    transition: 0.3s;
+}
+.view-more-btn:hover {
+    background-color: #2980b9;
+}
+
+
+/* เอฟเฟกต์เปิด */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+
+
+/* --- Responsive Design --- */
+@media (max-width: 992px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        position: relative;
+        height: auto;
+        padding-top: 0;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 400px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+        position: static;
+    }
+
+    .top-menu {
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    .top-menu ul {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .top-menu li {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .top-menu a {
+        padding: 0.75rem 1rem;
+        border-bottom: none;
+        border-left: 3px solid transparent;
+    }
+
+    .top-menu a:hover {
+        border-bottom: none;
+        border-left: 3px solid #007bff;
+    }
+
+    .main-content {
+        padding: 1rem;
+    }
+
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    tr {
+        border: 1px solid #ccc;
+        margin-bottom: 1rem;
+        border-radius: 8px;
+    }
+
+    td {
+        border: none;
+        position: relative;
+    }
+
+    td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 15px;
+        width: calc(50% - 30px);
+        white-space: nowrap;
+        text-align: left;
+        font-weight: 600;
+        color: #495057;
+    }
+
+    .action-buttons {
+        justify-content: flex-end;
+    }
+}

@@ -1,0 +1,403 @@
+/* manufrom.css */
+
+/* --- CSS Variables for easy theme changes --- */
+:root {
+    --primary-color: #4CAF50; /* Primary green */
+    --primary-hover-color: #45a049;
+    --navbar-bg: #ffffff;
+    --body-bg: #f4f7f6;
+    --text-color-dark: #333;
+    --text-color-light: #ecf0f1;
+    --sidebar-bg: #2c3e50;
+    --sidebar-hover-bg: #34495e;
+    --border-color: #e0e0e0;
+    --calendar-bg: #ffffff;
+    --calendar-day-bg: #ffffff; /* Adjusted for cleaner look */
+    --calendar-day-hover-bg: #e6f7ff;
+    --calendar-empty-bg: #fafafa; /* Adjusted for cleaner look */
+
+    /* Room Colors - Use these variables consistently */
+    --room-1-color: #e57373; /* Muted Red */
+    --room-2-color: #64b5f6; /* Muted Blue */
+    --room-3-color: #81c784; /* Muted Green */
+    --room-A-color: #ffb74d; /* Muted Orange */
+    --room-B-color: #7986cb; /* Muted Indigo */
+    --room-C-color: #f06292; /* Muted Pink */
+}
+
+body {
+    font-family: 'Sarabun', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--body-bg);
+    color: var(--text-color-dark);
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Center h2 in .content for room page */
+.content h2 {
+    text-align: center;
+}
+
+.text_center {
+  text-align: center;
+}
+
+.text_pic_room {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* --- Navigation Bars --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--navbar-bg);
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.top-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.top-menu a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.top-menu a:hover {
+    color: var(--primary-color);
+}
+
+/* --- Sidebar --- */
+.sidebar {
+    width: 250px;
+    background-color: var(--sidebar-bg);
+    color: var(--text-color-light);
+    padding-top: 6rem;
+    position: fixed;
+    height: 100%;
+    left: 0;
+    top: 0;
+    overflow-y: auto;
+    transition: width 0.3s ease;
+}
+
+.side-menu {
+    padding: 1.5rem;
+}
+
+.side-menu h5 {
+    color: #bdc3c7;
+    text-align: center;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    margin-top: 0;
+}
+
+.side-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.side-menu li {
+    margin-bottom: 0.5rem;
+}
+
+.side-menu a {
+    display: block;
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+    color: var(--text-color-light);
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.side-menu a:hover {
+    background-color: var(--sidebar-hover-bg);
+}
+
+/* --- Main Content Area --- */
+.content {
+    margin-left: 250px;
+    padding: 4rem 2rem 2rem;
+    flex-grow: 1;
+    transition: margin-left 0.3s ease;
+}
+
+.error-message {
+    background-color: #ffebee;
+    color: #c62828;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+/* --- Room Selection Links --- */
+.room-selection {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+}
+
+.room-link {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    background-color: #e9ecef;
+    color: var(--text-color-dark);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.room-link:hover {
+    background-color: #dee2e6;
+    transform: translateY(-2px);
+}
+
+.room-link.active-link {
+    background-color: var(--primary-color);
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Calendar Styles --- */
+.calendar-container {
+    background-color: var(--calendar-bg);
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.calendar-header button {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #999;
+    transition: color 0.3s ease;
+    padding: 0.5rem;
+}
+
+.calendar-header button:hover {
+    color: var(--primary-color);
+}
+
+.month-year {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #444;
+}
+
+.calendar-grid-container {
+    overflow-x: auto;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.75rem;
+}
+
+.day-header {
+    font-weight: 600;
+    color: #777;
+    background-color: #f0f4f7;
+    border-radius: 8px;
+    padding: 0.75rem;
+    text-align: center;
+}
+
+.calendar-day {
+    background-color: var(--calendar-day-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    min-height: 120px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease;
+}
+
+.calendar-day:hover {
+    background-color: var(--calendar-day-hover-bg);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.meetings-container {
+    width: 100%;
+    margin-top: 5px;
+    padding: 0 5px 5px;
+    overflow-y: auto;
+    max-height: 80px;
+}
+
+.meeting-title {
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 50px;
+    font-size: 0.85em;
+    margin: 4px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    text-align: center;
+}
+
+/* --- Room-specific colors (using a consistent naming scheme) --- */
+.room-ห้องประชุม1 {
+    background-color: var(--room-1-color);
+}
+
+.room-ห้องประชุม2 {
+    background-color: var(--room-2-color);
+}
+
+.room-ห้องประชุม3 {
+    background-color: var(--room-3-color);
+}
+
+.calendar-day.empty {
+    background-color: var(--calendar-empty-bg);
+    border: 1px dashed var(--border-color);
+    cursor: default;
+    box-shadow: none;
+}
+
+.calendar-day.empty:hover {
+    background-color: var(--calendar-empty-bg);
+    transform: none;
+    box-shadow: none;
+}
+
+.date-number {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #777;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1;
+}
+
+.legend-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    padding: 10px 0;
+    font-size: 14px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.legend-color {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+}
+
+.legend-text {
+    font-weight: 500;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        position: static;
+        padding-top: 1rem;
+        height: auto;
+    }
+
+    .content {
+        margin-left: 0;
+        padding-top: 1rem;
+    }
+
+    .navbar {
+        position: static;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+    }
+
+    .top-menu {
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    .top-menu ul {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .calendar-container {
+        padding: 1rem;
+    }
+
+    .calendar-header {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+
+    .calendar-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+}

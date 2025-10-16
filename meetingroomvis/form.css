@@ -1,0 +1,239 @@
+/* Global Styles */
+body {
+    font-family: 'Sarabun', sans-serif; /* เลือกใช้ฟอนต์ที่อ่านง่ายสำหรับภาษาไทย */
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f6; /* สีพื้นหลังอ่อนๆ */
+    color: #333;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff; /* สีพื้นหลัง Navbar */
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+.top-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.top-menu li {
+    margin-left: 1.5rem;
+}
+
+.top-menu a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.top-menu a:hover {
+    color: #4CAF50;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #2c3e50; /* สีพื้นหลัง Sidebar */
+    color: #ecf0f1;
+    padding-top: 6rem; /* เว้นระยะด้านบนเพื่อหลีกเลี่ยง navbar */
+    position: fixed;
+    height: 100%;
+    left: 0;
+    top: 0;
+    overflow-y: auto;
+    transition: width 0.3s ease;
+}
+
+.side-menu {
+    padding: 1.5rem;
+}
+
+.side-menu h5 {
+    color: #bdc3c7;
+    text-align: center;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    margin-top: 0;
+}
+
+.side-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.side-menu li {
+    margin-bottom: 0.5rem;
+}
+
+.side-menu a {
+    display: block;
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+    color: #ecf0f1;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.side-menu a:hover {
+    background-color: #34495e;
+}
+
+/* Main Content Area */
+.content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-left: 270px; /* Space for the fixed sidebar + margin */
+    margin-right: 20px;
+    margin-top: 85px;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+/* Form Styles */
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+form input[type="text"],
+form input[type="date"],
+form input[type="time"],
+form select,
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+form textarea {
+    resize: vertical;
+}
+
+form input[type="submit"] {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+form input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 400px) {
+    .container {
+        flex-direction: column;
+        padding-top: 0;
+    }
+
+    .sidebar {
+        position: static;
+        width: 100%;
+        height: auto;
+        padding-top: 0;
+    }
+    
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        position: static;
+    }
+
+    .top-menu ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .top-menu li {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+
+    .content {
+        margin: 20px;
+        max-width: none;
+    }
+}
+
+
+
+
+/* General button styling ------------------------------------------------------------------------------------------------*/
+.back-button {
+    background-color: #6c757d; /* A neutral gray color */
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    text-decoration: none; /* In case you use an anchor tag */
+    display: inline-block; /* Allows padding and other box model properties */
+    margin-top: 10px; /* Add some space above the button */
+    
+}
+
+/* Hover effect */
+.back-button:hover {
+    background-color: #5a6268;
+}
+
+/* To place the back button next to the submit button */
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form-buttons .back-button {
+    margin-top: 0; /* Remove top margin when inside the container */
+    width: 48%; /* Adjust width to fit side-by-side */
+}
+
+.form-buttons input[type="submit"] {
+    width: 48%; /* Adjust width to fit side-by-side */
+}
