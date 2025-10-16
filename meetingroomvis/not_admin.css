@@ -1,0 +1,209 @@
+/* manufrom.css */
+body {
+    font-family: 'Sarabun', sans-serif; /* เลือกใช้ฟอนต์ที่อ่านง่ายสำหรับภาษาไทย */
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f6; /* สีพื้นหลังอ่อนๆ */
+    color: #333;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff; /* สีพื้นหลัง Navbar */
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #4CAF50; /* สีโลโก้ */
+    text-decoration: none;
+}
+
+.top-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.top-menu li {
+    margin-left: 1.5rem;
+}
+
+.top-menu a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.top-menu a:hover {
+    color: #4CAF50;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #2c3e50; /* สีพื้นหลัง Sidebar */
+    color: #ecf0f1;
+    padding-top: 6rem; /* เว้นระยะด้านบนเพื่อหลีกเลี่ยง navbar */
+    position: fixed;
+    height: 100%;
+    left: 0;
+    top: 0;
+    overflow-y: auto;
+    transition: width 0.3s ease;
+}
+
+.side-menu {
+    padding: 1.5rem;
+}
+
+.side-menu h5 {
+    color: #bdc3c7;
+    text-align: center;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    margin-top: 0;
+}
+
+.side-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.side-menu li {
+    margin-bottom: 0.5rem;
+}
+
+.side-menu a {
+    display: block;
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+    color: #ecf0f1;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.side-menu a:hover {
+    background-color: #34495e;
+}
+
+
+.content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+.content h1 {
+    color: #d9534f;
+    margin-bottom: 15px;
+}
+.content p {
+    font-size: 1.1em;
+    color: #555;
+}
+.content a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #337ab7;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+.content a:hover {
+    background-color: #286090;
+}
+
+@media (max-width: 400px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+        position: static;
+    }
+
+    .top-menu {
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    .top-menu ul {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .top-menu li {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .top-menu a {
+        padding: 0.75rem 1rem;
+        border-bottom: none;
+        border-left: 3px solid transparent;
+    }
+
+    .top-menu a:hover {
+        border-bottom: none;
+        border-left: 3px solid #007bff;
+    }
+
+    .main-content {
+        padding: 1rem;
+    }
+
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    tr {
+        border: 1px solid #ccc;
+        margin-bottom: 1rem;
+        border-radius: 8px;
+    }
+
+    td {
+        border: none;
+        position: relative;
+    }
+
+    td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 15px;
+        width: calc(50% - 30px);
+        white-space: nowrap;
+        text-align: left;
+        font-weight: 600;
+        color: #495057;
+    }
+
+    .action-buttons {
+        justify-content: flex-end;
+    }
+}

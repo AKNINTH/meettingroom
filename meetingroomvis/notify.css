@@ -1,0 +1,66 @@
+/* Global notification/modal styles for the reservation app */
+.notify-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.4);
+  z-index: 10000;
+}
+
+.notify-box {
+  background: #fff;
+  border-radius: 8px;
+  padding: 18px 20px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.18);
+  max-width: 420px;
+  width: 90%;
+  color: #222;
+  animation: notify-pop .14s ease-out;
+}
+@keyframes notify-pop { from { transform: translateY(-6px); opacity: 0 } to { transform: translateY(0); opacity: 1 } }
+
+.notify-title {
+  font-weight: 700;
+  margin-bottom: 8px;
+  font-size: 1.05rem;
+}
+.notify-message { margin-bottom: 8px; line-height: 1.4 }
+.notify-actions { text-align: right }
+
+.notify-close {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #666;
+}
+
+/* types */
+.notify-box.success { border-left: 6px solid #4caf50 }
+.notify-box.error { border-left: 6px solid #f44336 }
+.notify-box.info { border-left: 6px solid #2196f3 }
+
+/* small toast variant (bottom-right) */
+.notify-toast-container {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 10000;
+}
+.notify-toast {
+  background: #fff;
+  border-radius: 8px;
+  padding: 10px 14px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+  min-width: 200px;
+}
+.notify-toast.success { border-left: 6px solid #4caf50 }
+.notify-toast.error { border-left: 6px solid #f44336 }
+.notify-toast.info { border-left: 6px solid #2196f3 }
+
+/* hide by default - JS will add to DOM */
