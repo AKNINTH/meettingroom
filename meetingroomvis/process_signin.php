@@ -15,36 +15,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-    // ตรวจสอบว่าชื่อผู้ใช้มีอยู่แล้วหรือไม่
-    $stmt = $conn->prepare("SELECT id FROM users WHERE username = ?");
-    $stmt->bind_param("s", $username);
-    $stmt->execute();
-    $stmt->store_result();
+    // ตรวจสอบว่าชื่อผู้ใช้มีอยู่แล้วหรือไม่ (PDO)
+    $stmt = $conn->prepare("SELECT id FROM users WHERE username = :username");
+    $stmt->execute([':username' => $username]);
+    $existing = $stmt->fetch();
 
-    if ($stmt->num_rows > 0) {
+    if ($existing) {
         $_SESSION['signin_error'] = "ชื่อผู้ใช้นี้มีอยู่ในระบบแล้ว.";
         header("Location: signin2.php");
         exit();
     }
 
-    $stmt->close();
+    // เพิ่มผู้ใช้ใหม่ (PDO)
+    $stmt = $conn->prepare("INSERT INTO users (username, password, role) VALUES (:username, :password, 'user')");
+    $success = $stmt->execute([
+        ':username' => $username,
+        ':password' => $hashed_password
+    ]);
 
-    // เพิ่มผู้ใช้ใหม่
-    $stmt = $conn->prepare("INSERT INTO users (username, password, role) VALUES (?, ?, 'user')");
-    $stmt->bind_param("ss", $username, $hashed_password);
-
-    if ($stmt->execute()) {
+    if ($success) {
         $_SESSION['registration_success'] = "สมัครสมาชิกสำเร็จ! กรุณาเข้าสู่ระบบ.";
         header("Location: login2.php");
         exit();
     } else {
-        $_SESSION['signin_error'] = "เกิดข้อผิดพลาดในการสมัครสมาชิก: " . $stmt->error;
+        // PDO: get error info
+        $errorInfo = $stmt->errorInfo();
+        $_SESSION['signin_error'] = "เกิดข้อผิดพลาดในการสมัครสมาชิก: " . ($errorInfo[2] ?? 'Unknown error');
         header("Location: signin2.php");
         exit();
     }
 
-    $stmt->close();
-    $conn->close();
+    // Close connection (optional with PDO)
+    $conn = null;
 } else {
     header("Location: signin2.php");
     exit();
